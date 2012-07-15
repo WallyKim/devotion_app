@@ -81,6 +81,19 @@ describe "Authentication" do
           it { should have_selector('title', text: 'Sign in') }
         end
         
+        describe "in the Categories controller" do
+
+        describe "submitting to the create action" do
+          before { post categories_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete category_path(FactoryGirl.create(:category)) }
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
+        
       end
     end
     

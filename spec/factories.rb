@@ -9,4 +9,9 @@ FactoryGirl.define do
       admin true
     end
   end
+  
+  factory :category do
+    title "Lorem ipsum"
+    user
+  end
 end

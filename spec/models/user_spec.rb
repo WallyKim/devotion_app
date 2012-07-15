@@ -29,6 +29,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:categories) }
   
   it { should be_valid }
   it { should_not be_admin }
@@ -125,5 +126,29 @@ describe User do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
   end
+  
+  describe "category associations" do
+
+    before { @user.save }
+    let!(:older_category) do 
+      FactoryGirl.create(:category, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_category) do
+      FactoryGirl.create(:category, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right categories in the right order" do
+      @user.categories.should == [newer_category, older_category]
+    end
+    
+    it "should destroy associated categories" do
+      categories = @user.categories
+      @user.destroy
+      categories.each do |category|
+        Category.find_by_id(category.id).should be_nil
+      end
+    end
+  end
+  
   # pending "add some examples to (or delete) #{__FILE__}"
 end
