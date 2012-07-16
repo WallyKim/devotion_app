@@ -6,7 +6,9 @@
         <%= render 'shared/user_info' %>
       </section>
       <section>
-        <%= render 'shared/category_form' %>
+      	<% if current_user.admin? %>
+          <%= render 'shared/category_form' %>
+        <% end %>
       </section>
     </aside>
     <div class="span8">
