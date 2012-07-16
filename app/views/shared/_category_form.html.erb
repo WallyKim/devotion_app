@@ -1,7 +1,13 @@
 <%= form_for(@category) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :title, placeholder: "Compose new category..." %>
+    <%= f.label :title %>
+    <%= f.select :title, [['창세기','Genesis'],
+    				     ['출애굽기','Exodus'],
+    				     ['레위기','Leviticus']] %>
+    
+<!--     <%= f.text_field :title %> -->
+<!--     <%= f.text_field :title, placeholder: "Compose new category..." %> -->
   </div>
-  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+  <%= f.submit "Create", class: "btn btn-large btn-primary" %>
 <% end %>

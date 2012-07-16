@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]  #[:index, :edit, :update, :destroy]
   before_filter :correct_user,   only: [:edit, :update]
   before_filter :admin_user,     only: :destroy
 
   def show
     @user = User.find(params[:id])
     @categories = @user.categories.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      format.json  { render :json => @categories }
+    end
   end
   
   def new
@@ -16,6 +20,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       # Handle a successful save.
+      if @user.id == 1
+        @user.toggle!(:admin)
+      end
       sign_in @user
       flash[:success] = "Welcome to the Devotion App!"
       redirect_to @user

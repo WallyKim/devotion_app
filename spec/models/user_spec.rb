@@ -148,6 +148,16 @@ describe User do
         Category.find_by_id(category.id).should be_nil
       end
     end
+    
+    describe "status" do
+      let(:unfollowed_post) do
+        FactoryGirl.create(:category, user: FactoryGirl.create(:user))
+      end
+
+      its(:feed) { should include(newer_category) }
+      its(:feed) { should include(older_category) }
+      its(:feed) { should_not include(unfollowed_post) }
+    end
   end
   
   # pending "add some examples to (or delete) #{__FILE__}"

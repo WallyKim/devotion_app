@@ -1,10 +1,11 @@
 class Category < ActiveRecord::Base
-  attr_accessible :title
+  attr_accessible :title, :bible_id
   
   belongs_to :user
   
   validates :title, presence: true
   validates :user_id, presence: true
+  validates :bible_id, presence: true
   
   default_scope order: 'categories.created_at DESC'
 end
