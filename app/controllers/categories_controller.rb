@@ -2,6 +2,7 @@
 
 class CategoriesController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
+  before_filter :correct_user,   only: :destroy
 
   def create
     @category = current_user.categories.build(params[:category])
@@ -216,5 +217,14 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    @category.destroy
+    redirect_to root_path
   end
+
+  private
+
+    def correct_user
+      @category = current_user.categories.find_by_id(params[:id])
+      redirect_to root_path if @category.nil?
+    end
 end
