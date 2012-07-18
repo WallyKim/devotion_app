@@ -19,6 +19,7 @@
     <%= devotionpost.application %>
   </p>
 
+  <% if signed_in? %>
   <p>
     <td><%= link_to 'Edit', edit_devotionpost_path(devotionpost) %></td>
   </p>
@@ -28,4 +29,6 @@
                  :confirm => 'Are you sure?',
                  :method => :delete %>
   </p>
+  <% else %>
+  <% end %>
 </div>

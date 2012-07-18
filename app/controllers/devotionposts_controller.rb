@@ -1,4 +1,7 @@
 class DevotionpostsController < ApplicationController
+  before_filter :signed_in_user, only: [:edit, :create, :destroy]
+  before_filter :correct_user,   only: :destroy
+  
   def create
     @category = Category.find(params[:category_id])
     @devotionpost = @category.devotionposts.create(params[:devotionpost])

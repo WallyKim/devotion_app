@@ -7,9 +7,12 @@
 
 <h2>Devotion posts</h2>
 <%= render @category.devotionposts %>
- 
-<h2>Add a devotion post:</h2>
-<%= render "devotionposts/form" %>
+
+<% if signed_in? %>
+  <h2>Add a devotion post:</h2>
+  <%= render "devotionposts/form" %>
+<% else %>
+<% end %>
 
 <br />
  
