@@ -3,4 +3,9 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(category.created_at) %> ago.
   </span>
+  <% if current_user?(category.user) %>
+    <%= link_to "delete", category, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: category.title %>
+  <% end %>
 </li>

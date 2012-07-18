@@ -1,0 +1,12 @@
+<h1>Editing post</h1>
+
+<%= form_for(@devotionposts) do |f| %>
+  <div class="field">
+    <%= f.label :title %>(제목)<br />
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

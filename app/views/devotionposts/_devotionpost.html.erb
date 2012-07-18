@@ -1,0 +1,28 @@
+<div class="center hero-unit">
+<li>
+  <p>
+    <b>ID:</b>
+    <%= devotionpost.id %>
+  </p>	
+	
+  <p>
+    <b>Title:</b>
+    <%= devotionpost.title %>
+  </p>
+ 
+  <p>
+    <b>Address:</b>
+    <%= devotionpost.address %>
+  </p>
+
+  <p>
+    <td><%= link_to 'Edit', edit_devotionpost_path(devotionpost) %></td>
+  </p>
+
+  <p>
+    <%= link_to 'Destroy', [devotionpost.category, devotionpost],
+                 :confirm => 'Are you sure?',
+                 :method => :delete %>
+  </p>
+</li>
+</div>

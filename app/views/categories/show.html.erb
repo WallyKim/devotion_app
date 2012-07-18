@@ -1,0 +1,16 @@
+<p class="notice"><%= notice %></p>
+ 
+<p>
+  <b>Category:</b>
+  <%= @category.title %>
+</p>
+
+<h2>Devotionposts</h2>
+<%= render @category.devotionposts %>
+ 
+<h2>Add a devotionpost:</h2>
+<%= render "devotionposts/form" %>
+
+<br />
+ 
+<%= link_to 'Back to Categories', root_path %> |
