@@ -5,7 +5,9 @@ DevotionApp::Application.routes.draw do
   resources :categories, only: [:show, :create, :destroy] do
     resources :devotionposts
   end
+  
   resources :devotionposts
+  
   # resources :categories, only: [:create, :destroy]  # get "users/new"
   root to: 'static_pages#home'
   

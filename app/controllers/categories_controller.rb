@@ -218,10 +218,11 @@ class CategoriesController < ApplicationController
   
   def show
     @category = Category.find(params[:id])
-
+    @devotionpost = @category.devotionposts.paginate(page: params[:page])
+    
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @category.devotionposts }
+      format.json { render json: @devotionpost }
     end
   end
 

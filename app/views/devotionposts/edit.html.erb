@@ -1,11 +1,22 @@
-<h1>Editing post</h1>
+<h1>Editing devotion post</h1>
 
-<%= form_for(@devotionposts) do |f| %>
+<%= form_for @devotionpost do |f| %>
   <div class="field">
     <%= f.label :title %>(제목)<br />
     <%= f.text_field :title %>
   </div>
-  
+  <div class="field">
+    <%= f.label :address %>(주소)<br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :content %>(내용)<br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :application %>(적용)<br />
+    <%= f.text_area :application %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

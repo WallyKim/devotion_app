@@ -1,10 +1,4 @@
 <div class="center hero-unit">
-<li>
-  <p>
-    <b>ID:</b>
-    <%= devotionpost.id %>
-  </p>	
-	
   <p>
     <b>Title:</b>
     <%= devotionpost.title %>
@@ -13,6 +7,16 @@
   <p>
     <b>Address:</b>
     <%= devotionpost.address %>
+  </p>
+  
+  <p>
+    <b>Content:</b>
+    <%= devotionpost.content %>
+  </p>
+  
+  <p>
+    <b>Application:</b>
+    <%= devotionpost.application %>
   </p>
 
   <p>
@@ -24,5 +28,4 @@
                  :confirm => 'Are you sure?',
                  :method => :delete %>
   </p>
-</li>
 </div>

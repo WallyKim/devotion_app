@@ -10,17 +10,16 @@ class DevotionpostsController < ApplicationController
   end
   
   def edit
-    @devotionpost = Devotionpost.new
     @devotionpost = Devotionpost.find(params[:id])
   end
   
   def update
-    @category = Category.find(params[:category_id])
-    @devotionpost = @category.devotionposts.find(params[:id])
+    @devotionpost = Devotionpost.find(params[:id])
+    @category = Category.find(@devotionpost.category_id)
 
     respond_to do |format|
       if @devotionpost.update_attributes(params[:devotionpost])
-        format.html { redirect_to @devotionpost, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @category, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
