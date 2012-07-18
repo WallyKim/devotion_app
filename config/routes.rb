@@ -5,15 +5,10 @@ DevotionApp::Application.routes.draw do
   resources :categories, only: [:show, :create, :destroy] do
     resources :devotionposts
   end
-<<<<<<< HEAD
-  # get "users/new"
-
-=======
-  
+  # get "users/new"  
   resources :devotionposts
   
   # resources :categories, only: [:create, :destroy]  # get "users/new"
->>>>>>> 54c5bf22761747f4eb156b57b9f87e6cbc1506a5
   root to: 'static_pages#home'
   
   match '/help',    to: 'static_pages#help'
