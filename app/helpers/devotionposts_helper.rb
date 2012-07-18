@@ -1,0 +1,2 @@
+module DevotionpostsHelper
+end

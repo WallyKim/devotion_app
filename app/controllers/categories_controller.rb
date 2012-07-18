@@ -215,6 +215,16 @@ class CategoriesController < ApplicationController
       render 'static_pages/home'
     end
   end
+  
+  def show
+    @category = Category.find(params[:id])
+    @devotionpost = @category.devotionposts.paginate(page: params[:page])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @devotionpost }
+    end
+  end
 
   def destroy
     @category.destroy

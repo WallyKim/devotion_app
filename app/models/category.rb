@@ -9,5 +9,5 @@ class Category < ActiveRecord::Base
   
   has_many :devotionposts, dependent: :destroy
   
-  default_scope order: 'categories.created_at DESC'
+  default_scope order: 'categories.bible_id ASC'
 end

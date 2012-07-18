@@ -1,0 +1,31 @@
+<div class="center hero-unit">
+  <p>
+    <b>Title:</b>
+    <%= devotionpost.title %>
+  </p>
+ 
+  <p>
+    <b>Address:</b>
+    <%= devotionpost.address %>
+  </p>
+  
+  <p>
+    <b>Content:</b>
+    <%= devotionpost.content %>
+  </p>
+  
+  <p>
+    <b>Application:</b>
+    <%= devotionpost.application %>
+  </p>
+
+  <p>
+    <td><%= link_to 'Edit', edit_devotionpost_path(devotionpost) %></td>
+  </p>
+
+  <p>
+    <%= link_to 'Destroy', [devotionpost.category, devotionpost],
+                 :confirm => 'Are you sure?',
+                 :method => :delete %>
+  </p>
+</div>
