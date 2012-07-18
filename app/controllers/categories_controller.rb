@@ -228,8 +228,8 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     redirect_to root_path
-  end
-  
+  end  
+
   private
 
     def correct_user
