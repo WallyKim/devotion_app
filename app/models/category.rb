@@ -7,5 +7,7 @@ class Category < ActiveRecord::Base
   validates :user_id, presence: true
   validates :bible_id, presence: true
   
+  has_many :devotionposts, dependent: :destroy
+  
   default_scope order: 'categories.created_at DESC'
 end

@@ -220,6 +220,16 @@ class CategoriesController < ApplicationController
     @category.destroy
     redirect_to root_path
   end
+  
+  def show
+    @category = Category.find(params[:id])
+    @devotionpost = @category.devotionposts
+
+    respond_to do |format|
+      format.html  # show.html.erb
+      format.json { render json: @devotionpost }
+    end
+  end
 
   private
 

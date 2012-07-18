@@ -1,0 +1,35 @@
+<h1>Listing devotionposts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Address</th>
+    <th>Content</th>
+    <th>Application</th>
+    <th>Bible</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @category.devotionposts.each do |devotionpost| %>
+  <tr>
+    <td><%= devotionpost.title %></td>
+    <td><%= devotionpost.address %></td>
+    <td><%= devotionpost.content %></td>
+    <td><%= devotionpost.application %></td>
+    <td><%= devotionpost.bible_id %></td>
+    <td><%= devotionpost.category %></td>
+    <td><%= link_to 'Show', devotionpost %></td>
+    <td><%= link_to 'Edit', edit_devotionpost_path(devotionpost) %></td>
+    <td><%= link_to 'Destroy', devotionpost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% @category.devotionposts.each do |devotionpost| %>
+<%= link_to 'New Devotionpost', new_devotionpost_path %>
+<% end %>
