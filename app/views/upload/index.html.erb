@@ -1,0 +1,5 @@
+# index.html.erb
+<%= form_tag({:action => 'uploadFile'}, :method => "post", :multipart => true) do %>
+   <%= file_field_tag :file %>
+   <%= submit_tag "Upload" %>
+<% end %>

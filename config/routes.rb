@@ -1,5 +1,9 @@
 DevotionApp::Application.routes.draw do
 
+  get "upload/index"
+  post "upload/uploadFile"
+  get "upload/adhoc"
+  
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :categories, only: [:show, :create, :destroy] do
