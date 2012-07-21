@@ -5,10 +5,14 @@ class DevotionpostsController < ApplicationController
   def create
     @category = Category.find(params[:category_id])
     @devotionpost = @category.devotionposts.create(params[:devotionpost])
-    @devotionpost.bible_id = @category.bible_id
+    # @devotionpost.bible_id = @category.bible_id
     
     if @devotionpost.save
-      redirect_to root_path
+      # redirect_to root_path
+      redirect_to @category, notice: 'Post was successfully created.'
+    else
+      flash[:error] = @devotionpost.errors.full_messages
+      redirect_to @category
     end
   end
   

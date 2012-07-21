@@ -2,7 +2,8 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.label :title %>
-    <%= f.select :title, [['창세기','Genesis'],
+    <!-- 
+    	<%= f.select :title, [['창세기','Genesis'],
     				     ['출애굽기','Exodus'],
     				     ['레위기','Leviticus'],
     				     ['민수기', 'Numbers'],
@@ -68,9 +69,14 @@
     				     ['요한3서', '3 John'],
     				     ['유다서', 'Jude'],
     				     ['요한계시록', 'Revelation']] %>
-    
+
+    	-->    
 <!--     <%= f.text_field :title %> -->
-<!--     <%= f.text_field :title, placeholder: "Compose new category..." %> -->
+    <%= f.text_field :title, placeholder: "Compose new category..." %>
+  </div>
+  <div class="field">
+    <%= f.label :guide %>
+    <%= f.text_area :guide %>
   </div>
   <%= f.submit "Create", class: "btn btn-large btn-primary" %>
 <% end %>
