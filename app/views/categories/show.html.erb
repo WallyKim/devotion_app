@@ -7,13 +7,13 @@
 
 <h2>Devotion posts</h2>
 <%= render @category.devotionposts %>
-
-<% if signed_in? %>
-  <h2>Add a devotion post:</h2> 
-  <%= render "devotionposts/form" %>
-<% else %>
-<% end %>
-
 <br />
  
 <%= link_to 'Back to Categories', root_path %> |
+<% if signed_in? %>
+<!--   <%= render "devotionposts/form" %> -->
+<!-- <%= link_to 'New post', new_devotionpost_path(1) %> -->
+<%= link_to "New post", {:controller => "devotionposts", :action => "new", :id => @category }%>
+
+<% else %>
+<% end %>
