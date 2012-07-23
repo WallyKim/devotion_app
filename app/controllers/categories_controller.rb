@@ -3,6 +3,12 @@
 class CategoriesController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user,   only: :destroy
+  
+  def version
+    render :json => {
+                  :version => '1.0.0'
+                }
+  end
 
   def create
     @category = current_user.categories.build(params[:category])
