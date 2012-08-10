@@ -72,11 +72,13 @@
 
     	-->    
 <!--     <%= f.text_field :title %> -->
-    <%= f.text_field :title, placeholder: "Compose new category..." %>
+    <%= f.text_field :title, placeholder: "Korean" %>
+    <%= f.text_field :title_en, placeholder: "English" %>
   </div>
   <div class="field">
     <%= f.label :guide %>
-    <%= f.text_area :guide %>
+    <%= f.text_area :guide, placeholder: "Korean" %>
+    <%= f.text_area :guide_en, placeholder: "English" %>
   </div>
   <%= f.submit "Create", class: "btn btn-large btn-primary" %>
 <% end %>

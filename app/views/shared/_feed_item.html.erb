@@ -5,9 +5,13 @@
 <!--   </span> -->
   <span class="title">
   	<%= link_to feed_item.title, feed_item %>
+  	<br>
+  	(<%= feed_item.title_en %>)
   </span>
   <span class="title">
   	<%= feed_item.guide %>
+  	<br>
+  	<%= feed_item.guide_en %>
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed_item.created_at) %> ago.

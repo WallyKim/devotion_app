@@ -8,26 +8,31 @@
 
   <div class="field">
     <%= f.label :title %>(제목)<br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder: "Korean" %>
+    <%= f.text_field :title_en, placeholder: "English" %>
   </div>
   <div class="field">
     <%= f.label :address %>(주소)<br />
-    <%= f.text_field :address %>
+    <%= f.text_field :address, placeholder: "Korean" %>
+    <%= f.text_field :address_en, placeholder: "English" %>
   </div>
   <div class="field">
     <%= f.label :intro %>(본문 설명-개괄)
     <%= f.label :value => @introlength %>
-    <%= f.text_area :intro %>
+    <%= f.text_area :intro, placeholder: "Korean" %>
+    <%= f.text_area :intro_en, placeholder: "English" %>
   </div>
   <div class="field">
     <%= f.label :content %>(의미)
     <%= f.label :value => @contentlength %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, placeholder: "Korean" %>
+    <%= f.text_area :content_en, placeholder: "English" %>
   </div>
   <div class="field">
     <%= f.label :application %>(적용)
     <%= f.label :value => @applicationlength %>
-    <%= f.text_area :application %>
+    <%= f.text_area :application, placeholder: "Korean" %>
+    <%= f.text_area :application_en, placeholder: "English" %>
   </div>
   
   <div class="actions">

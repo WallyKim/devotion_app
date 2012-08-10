@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  attr_accessible :title, :guide #:bible_id 컨텐츠 플로우 수정되면서 
+  attr_accessible :title, :guide, :title_en, :guide_en #:bible_id 컨텐츠 플로우 수정되면서 
   
   belongs_to :user
   
@@ -7,6 +7,9 @@ class Category < ActiveRecord::Base
   validates :user_id, presence: true
   # validates :bible_id, presence: true
   validates :guide, presence: true
+  
+  validates :title_en, presence: true
+  validates :guide_en, presence: true
   
   has_many :devotionposts, dependent: :destroy
   
